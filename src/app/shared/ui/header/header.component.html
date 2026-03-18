@@ -2,7 +2,7 @@
   <div class="container">
 
     <!-- Logo / Nombre -->
-    <a class="navbar-brand" href="#">Mi Empresa</a>
+    <a class="navbar-brand" href="/">Mi Empresa</a>
 
     <!-- Botón responsive -->
     <button 
@@ -16,26 +16,20 @@
     <!-- Menú -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Inicio</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Servicios</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Nosotros</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
-        </li>
+        @for (menuItem of menuItems; track menuItem) {
+          <li class="nav-item">
+            <a class="nav-link active" [href]="menuItem.path">{{ menuItem.label }}</a>
+          </li>
+        }
 
         <!-- Botón -->
         <li class="nav-item ms-3">
-          <a class="btn btn-primary" href="#">Cotizar</a>
+          <a 
+            href="https://wa.me/4612669952?text=Hola%20quiero%20información"
+            class="whatsapp-float d-flex align-items-center gap-2"
+            target="_blank">
+            <i class="bi bi-whatsapp"></i>
+          </a>
         </li>
 
       </ul>

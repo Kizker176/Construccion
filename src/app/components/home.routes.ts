@@ -12,5 +12,9 @@ export default [
     {
         path: 'contacto',
         loadComponent: () => import('./cta/cta.component').then(m => m.CtaComponent),
+    },
+    {
+        path: 'nosotros',
+        loadComponent: () => import('./nosotros/nosotros.component').then(m => m.NosotrosComponent),
     }
 ] as Routes;

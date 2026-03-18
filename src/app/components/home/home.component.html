@@ -1,1 +1,181 @@
-<p>home works!</p>
+@if(slides.length) {
+    <div 
+        id="carouselExampleRide" 
+        class="carousel slide"
+        data-bs-ride="carousel"
+        [attr.data-bs-interval]="interval"
+        [attr.data-bs-pause]="pauseOnHover ? 'hover' : 'false'">
+    
+        <!-- INDICADORES -->
+        <div class="carousel-indicators">
+            @for (slide of slides; track slide) {
+            <button 
+                type="button"
+                data-bs-target="#carouselExampleRide"
+                [attr.data-bs-slide-to]="$index"
+                [class.active]="$index === 0"
+                [attr.aria-current]="$index === 0 ? 'true' : null">
+            </button>
+            }
+        </div>
+    
+        <!-- SLIDES -->
+        <div class="carousel-inner">
+            @for (slide of slides; track slide) {
+            <div class="carousel-item" [class.active]="$index === 0">
+    
+                @if (slide.img) {
+                <img 
+                    [src]="slide.img"
+                    class="d-block w-100"
+                    style="height: 400px; object-fit: cover;"
+                />
+                }
+    
+                @if (!slide.img) {
+                <div 
+                    class="d-block w-100"
+                    style="height: 400px;"
+                    [style.background]="slide.color || '#ccc'">
+                </div>
+                }
+    
+                <div class="carousel-caption d-none d-md-block">
+                <h5>{{ slide.title }}</h5>
+                <p>{{ slide.text }}</p>
+                </div>
+    
+            </div>
+            }
+        </div>
+    
+        <!-- CONTROLES -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+    
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    
+    </div>
+}
+
+<!-- HERO -->
+<section class="bg-dark text-white text-center d-flex align-items-center" style="height: 80vh; background: url('/ingenieria-civil.png') center/cover no-repeat;">
+    <div class="container">
+        <h1 class="fw-bold display-4">Ingeniería Civil de Alto Nivel</h1>
+        <p class="lead">Construimos el futuro con calidad, innovación y compromiso</p>
+        <button class="btn btn-primary btn-lg mt-3">Nuestros Servicios</button>
+    </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Servicios</h2>
+        <p class="text-muted">Soluciones integrales en ingeniería civil</p>
+    </div>
+
+    <div class="row g-4 text-center">
+
+        <div class="col-md-4">
+        <div class="card p-4 shadow-sm border-0 h-100">
+            <h5 class="fw-bold">Construcción</h5>
+            <p class="text-muted">Ejecución de obras con altos estándares de calidad.</p>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+        <div class="card p-4 shadow-sm border-0 h-100">
+            <h5 class="fw-bold">Diseño</h5>
+            <p class="text-muted">Planeación y diseño estructural eficiente.</p>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+        <div class="card p-4 shadow-sm border-0 h-100">
+            <h5 class="fw-bold">Supervisión</h5>
+            <p class="text-muted">Control total de obra para garantizar resultados.</p>
+        </div>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+
+        <div class="col-md-6">
+            <img src="/ingenieria-civil.png" class="img-fluid rounded shadow-sm">
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="fw-bold">¿Quiénes somos?</h2>
+            <p>
+            Somos una empresa especializada en ingeniería civil, comprometida con la calidad,
+            la seguridad y la innovación en cada proyecto.
+            </p>
+            <p>
+            Contamos con un equipo altamente capacitado y amplia experiencia en obras públicas
+            y privadas.
+            </p>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Proyectos</h2>
+        <p class="text-muted">Algunos de nuestros trabajos</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+        <img src="/slide2.jpg" class="img-fluid rounded shadow-sm">
+        </div>
+
+        <div class="col-md-4">
+        <img src="/slide3.jpg" class="img-fluid rounded shadow-sm">
+        </div>
+
+        <div class="col-md-4">
+        <img src="/ingenieria-civil.png" class="img-fluid rounded shadow-sm">
+        </div>
+
+    </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="bg-light py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+        <h2 class="fw-bold">Contáctanos</h2>
+        </div>
+
+        <div class="row g-4">
+
+        <div class="col-md-6">
+            <input type="text" class="form-control mb-3" placeholder="Nombre">
+            <input type="email" class="form-control mb-3" placeholder="Correo">
+            <textarea class="form-control mb-3" rows="4" placeholder="Mensaje"></textarea>
+            <button class="btn btn-primary w-100">Enviar</button>
+        </div>
+
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <p>📍 León, Guanajuato</p>
+            <p>📞 +52 477 123 4567</p>
+            <p>✉️ contacto&#64;empresa.com</p>
+        </div>
+
+        </div>
+
+    </div>
+</section>

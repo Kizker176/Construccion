@@ -4,5 +4,9 @@ export const routes: Routes = [
     {
         path: '',
         loadChildren: () => import('./components/home.routes').then(m => m.default)
+    },
+    {
+        path: '**',
+        redirectTo: '/'
     }
 ];
